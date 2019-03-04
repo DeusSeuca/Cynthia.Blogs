@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/Cynthia.Blog.Server/Cynthia.Blog.Server.csproj"
+                "${workspaceFolder}/src/Cynthia.Blogs.Server/Cynthia.Blogs.Server.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
