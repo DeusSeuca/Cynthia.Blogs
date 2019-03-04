@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Cynthia.Blog.Server/bin/Debug/netcoreapp2.2/Cynthia.Blog.Server.dll",
+            "program": "${workspaceFolder}/src/Cynthia.Blogs.Server/bin/Debug/netcoreapp2.2/Cynthia.Blogs.Server.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/Cynthia.Blog.Server",
+            "cwd": "${workspaceFolder}/src/Cynthia.Blogs.Server",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

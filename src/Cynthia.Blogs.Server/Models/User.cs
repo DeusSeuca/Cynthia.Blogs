@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Cynthia.Blog.Server.Models
+namespace Cynthia.Blogs.Server.Models
 {
     public class User
     {

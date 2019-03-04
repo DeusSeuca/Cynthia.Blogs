@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Cynthia.Blog.Server.Models
+namespace Cynthia.Blogs.Server.Models
 {
     //Comment on Blog
     public class Comment

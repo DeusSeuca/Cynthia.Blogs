@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Cynthia.Blog.Server
+namespace Cynthia.Blogs.Server
 {
     public class Program
     {
