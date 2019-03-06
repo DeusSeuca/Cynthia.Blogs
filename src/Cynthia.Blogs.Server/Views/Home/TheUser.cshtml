@@ -1,0 +1,10 @@
+@using Cynthia.Blogs.Server.Models
+@model User
+
+<h1> @Model.UserName </h1>
+<p> @Model.LoginName </p>
+<p> @Model.RegisterTime </p>
+<!-- <a href="/Home/Login">返回用户列表</a>
+<a href="/Home/Index">返回主页</a> -->
+@Html.ActionLink("返回用户列表","UserList")
+@Html.ActionLink("返回主页","Index")

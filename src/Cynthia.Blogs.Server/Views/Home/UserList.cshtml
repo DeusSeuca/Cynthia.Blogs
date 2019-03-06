@@ -1,0 +1,10 @@
+@using Cynthia.Blogs.Server.Models
+@model IEnumerable<User>
+
+<ul>
+    @foreach(var user in Model)
+    {
+        <!-- <a href="/Home/Register/@user.Id">详细信息</a> -->
+        <li>用户: @user.UserName <a asp-action="TheUser" asp-controller="Home" asp-route-id="@user.Id">详细信息</a></li>
+    }
+</ul>

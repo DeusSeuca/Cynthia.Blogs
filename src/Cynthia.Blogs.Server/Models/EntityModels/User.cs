@@ -11,7 +11,7 @@ namespace Cynthia.Blogs.Server.Models
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
-        public DateTimeOffset RegisterTime { get; set; } = new DateTimeOffset();
+        public DateTimeOffset RegisterTime { get; set; } = DateTimeOffset.Now;
         public IEnumerable<Blog> Blogs { get; set; }
         public IEnumerable<Comment> Comment { get; set; }
     }
