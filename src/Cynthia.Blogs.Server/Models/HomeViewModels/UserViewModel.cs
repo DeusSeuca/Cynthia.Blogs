@@ -1,4 +1,4 @@
-namespace Cynthia.Blogs.Server.Models.ViewModels
+namespace Cynthia.Blogs.Server.Models.HomeViewModels
 {
     public class UserViewModel
     {

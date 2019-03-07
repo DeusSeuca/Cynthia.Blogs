@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace Cynthia.Blogs.Server.Models
 {
-    public class User
+    public class ApplicationUser:IdentityUser
     {
-        [Key]
-        public int Id { get; set; }
-        public string LoginName { get; set; }
-        public string Password { get; set; }
-        public string UserName { get; set; }
+        public string ShowName { get; set; }
         public DateTimeOffset RegisterTime { get; set; } = DateTimeOffset.Now;
         public IEnumerable<Blog> Blogs { get; set; }
         public IEnumerable<Comment> Comment { get; set; }

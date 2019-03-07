@@ -1,25 +1,29 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Cynthia.Blogs.Server.Data;
+using Cynthia.Blogs.Server.Models.HomeViewModels;
+using Cynthia.Blogs.Server.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 public class HomeController:Controller
 {
     private readonly BlogDbContext _context;
-    public HomeController(BlogDbContext context) => _context = context;
-    
+    private readonly IBusiness _business;
+    public HomeController(BlogDbContext context,IBusiness business)
+    {
+        _context = context;
+        _business = business;
+    }
+
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult Login()
-    {
-        return View();
-    }
-
-    public IActionResult Register()
+    [Authorize]
+    public IActionResult EditPost()
     {
         return View();
     }
@@ -30,7 +34,7 @@ public class HomeController:Controller
         return View(users);
     }
 
-    public IActionResult TheUser(int id)
+    public IActionResult TheUser(string id)
     {
         var user = _context.User.SingleOrDefault(x=>x.Id==id);
         if(user != null)

@@ -1,12 +1,13 @@
 using System.Threading.Tasks;
-using Cynthia.Blogs.Server.Models.ViewModels;
+using Cynthia.Blogs.Server.Models.HomeViewModels;
 
 namespace Cynthia.Blogs.Server.Services
 {
     //business logic service
     public interface IBusiness
     {
-        Task<UserInfo> Login(string username,string password);
+        Task<bool> Login(LoginInfo info);
+        Task Logout();
         Task<bool> Register(RegisterInfo info);
     }
 }

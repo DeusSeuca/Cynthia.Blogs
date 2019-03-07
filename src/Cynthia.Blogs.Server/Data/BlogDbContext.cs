@@ -11,7 +11,7 @@ namespace Cynthia.Blogs.Server.Data
             : base(options)
         {
         }
-        public DbSet<User> User{get;set;}
+        public DbSet<ApplicationUser> User{get;set;}
         public DbSet<Blog> Blog{get;set;}
         public DbSet<Comment> Comment{get;set;}
     }

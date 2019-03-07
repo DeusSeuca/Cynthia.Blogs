@@ -1,0 +1,21 @@
+@model LoginInfo
+
+<h1>登陆页面</h1>
+
+<vc:test></vc:test>
+
+<form method="post">
+    <div>
+        <label asp-for="LoginName"></label><br />
+        <input asp-for="LoginName" />
+        <span asp-validation-for="LoginName"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div asp-validation-summary="ModelOnly"></div>
+    <br />
+    <button type="submit" name="login">登陆</button>
+</form>

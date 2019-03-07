@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{044F1A81-EAE0-42BA-8D21-959B92840020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cynthia.Blogs.Server", "src\Cynthia.Blogs.Server\Cynthia.Blogs.Server.csproj", "{8D1DA97D-3C5A-470E-9422-147F9E2F00E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cynthia.Blogs.Server", "src\Cynthia.Blogs.Server\Cynthia.Blogs.Server.csproj", "{8D1DA97D-3C5A-470E-9422-147F9E2F00E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8D1DA97D-3C5A-470E-9422-147F9E2F00E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,7 +30,13 @@ Global
 		{8D1DA97D-3C5A-470E-9422-147F9E2F00E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{8D1DA97D-3C5A-470E-9422-147F9E2F00E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8D1DA97D-3C5A-470E-9422-147F9E2F00E1} = {044F1A81-EAE0-42BA-8D21-959B92840020}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21A8C9A9-24FC-4D9D-8742-2A6F0904228E}
 	EndGlobalSection
 EndGlobal

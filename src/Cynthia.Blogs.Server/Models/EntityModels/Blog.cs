@@ -7,8 +7,10 @@ namespace Cynthia.Blogs.Server.Models
     public class Blog
     {
         [Key]
-        public int Id { get; set; }
-        public DateTimeOffset ReleaseTime { get; set; } = new DateTimeOffset();
+        public string Id { get; set; }
+        public string Title{get;set;}
+        public string Context{get;set;}
+        public DateTimeOffset ReleaseTime { get; set; } = DateTimeOffset.Now;
         public IEnumerable<Comment> Comments { get; set; }
     }
 }

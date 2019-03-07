@@ -1,0 +1,29 @@
+@model RegisterInfo
+
+<h1>注册页面</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="UserName">显示名称</label><br />
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <label asp-for="LoginName">登录名称</label><br />
+        <input asp-for="LoginName" />
+        <span asp-validation-for="LoginName"></span>
+    </div>
+    <div>
+        <label asp-for="Password">密码</label><br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RePassword">确认密码</label><br />
+        <input asp-for="RePassword" />
+        <span asp-validation-for="RePassword"></span>
+    </div>
+    <div asp-validation-summary="ModelOnly"></div>
+    <br />
+    <button type="submit" name="login">注册</button>
+</form>

@@ -7,11 +7,12 @@ namespace Cynthia.Blogs.Server.Models
     public class Comment
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
         public DateTimeOffset CommentTime { get; set; } = new DateTimeOffset();
-        public int UserId { get; set; }
-        public User User { get; set; }
-        public int BlogId { get; set; }
+        public string Context{get;set;}
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+        public string BlogId { get; set; }
         public Blog Blog { get; set; }
     }
 }
