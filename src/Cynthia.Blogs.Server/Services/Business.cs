@@ -22,7 +22,7 @@ namespace Cynthia.Blogs.Server.Services
 
         public async Task<bool> Login(LoginInfo info)
         {
-            var user = await _userManager.FindByNameAsync(info.LoginName);
+            var user = await _userManager.FindByNameAsync(info.Username);
             if (user == null) return false;
             var result = await _signInManager.PasswordSignInAsync(user, info.Password, false, false);
             return result.Succeeded;

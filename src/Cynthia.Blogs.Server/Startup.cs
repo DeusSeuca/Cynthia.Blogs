@@ -30,12 +30,20 @@ namespace Cynthia.Blogs.Server
         public void ConfigureServices(IServiceCollection services)
         {
             //database connection string config
-            services.AddDbContext<BlogDbContext>(options=>{
+            services.AddDbContext<BlogDbContext>(options =>
+            {
                 options.UseSqlite(_configuration.GetConnectionString("Default"));
             });
-            services.AddScoped<IBusiness,Business>();
+            services.AddScoped<IBusiness, Business>();
             services.AddMvc();
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<ApplicationUser>(options =>
+                {
+                    //Passwords are limited in length only(Limit setting in ’RegisterInfo‘)
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredUniqueChars = 0;
+                })
                 .AddEntityFrameworkStores<BlogDbContext>();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -51,13 +59,13 @@ namespace Cynthia.Blogs.Server
             app.UseStaticFiles(new StaticFileOptions()
             {
                 RequestPath = "/node_modules",
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath,"node_modules"))
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules"))
             });
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default", 
+                    name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}"
                 );
             });

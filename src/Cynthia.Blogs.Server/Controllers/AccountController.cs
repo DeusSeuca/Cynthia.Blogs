@@ -41,6 +41,7 @@ namespace Cynthia.Blogs.Server.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _business.Logout();

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Cynthia.Blogs.Server.Data
 {
-    public class BlogDbContext : IdentityDbContext
+    public class BlogDbContext : IdentityDbContext<ApplicationUser>
     {
         public BlogDbContext(DbContextOptions<BlogDbContext> options)
             : base(options)

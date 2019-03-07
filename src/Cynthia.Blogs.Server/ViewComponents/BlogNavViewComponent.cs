@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cynthia.Blogs.Server.ViewComponets
 {
-    public class TestViewComponent : ViewComponent
+    public class BlogNavViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
-            return View("HelloWorld","测试");
+            return View("Nav");
         }
     }
 }

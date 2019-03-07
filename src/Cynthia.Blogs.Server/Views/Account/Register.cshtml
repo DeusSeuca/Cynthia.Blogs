@@ -4,14 +4,14 @@
 
 <form method="post">
     <div>
-        <label asp-for="UserName">显示名称</label><br />
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+        <label asp-for="ShowName">显示名称</label><br />
+        <input asp-for="ShowName" />
+        <span asp-validation-for="ShowName"></span>
     </div>
     <div>
-        <label asp-for="LoginName">登录名称</label><br />
-        <input asp-for="LoginName" />
-        <span asp-validation-for="LoginName"></span>
+        <label asp-for="Username">登录名称</label><br />
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
     </div>
     <div>
         <label asp-for="Password">密码</label><br />
@@ -25,5 +25,5 @@
     </div>
     <div asp-validation-summary="ModelOnly"></div>
     <br />
-    <button type="submit" name="login">注册</button>
+    <button type="submit" name="register">注册</button>
 </form>
