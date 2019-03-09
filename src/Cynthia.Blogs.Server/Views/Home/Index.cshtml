@@ -1,1 +1,19 @@
-<h1>主页</h1>
+@model BlogListViewModel
+
+<div class="container">
+    <h1>主页</h1>
+    @if(Model.Blogs!=null)
+    {
+        @foreach (var item in Model.Blogs)
+        {
+            <p><a asp-action="BlogShow" asp-controller="Home" asp-route-id="@item.BlogId">@item.Title</a></p>
+            <p>作者:@item.Author</p>
+            <p>@item.ContextPart</p>
+            <hr/>
+        }
+    }
+    else
+    {
+        <p>目前还没有文章</p>
+    }
+</div>

@@ -34,7 +34,8 @@ namespace Cynthia.Blogs.Server.Models.HomeViewModels
             return new ApplicationUser()
             {
                 UserName = this.Username,
-                ShowName = this.ShowName
+                ShowName = this.ShowName,
+                PasswordHash = this.Password
             };
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Cynthia.Blogs.Server.Data;
 using Cynthia.Blogs.Server.Models;
@@ -34,33 +35,31 @@ namespace Cynthia.Blogs.Server
             {
                 options.UseSqlite(_configuration.GetConnectionString("Default"));
             });
-            services.AddScoped<IBusiness, Business>();
-            services.AddMvc();
             services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
                     //Passwords are limited in length only(Limit setting in ’RegisterInfo‘)
+                    options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireDigit = false;
-                    options.Password.RequiredUniqueChars = 0;
                 })
                 .AddEntityFrameworkStores<BlogDbContext>();
+            services.AddScoped<IBusiness, Business>();
+            services.AddMvc();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // context.User.Add(new User(){LoginName="Cynthia",UserName="辛西娅",Password="cc123456"});
-            // context.User.Add(new User(){LoginName="RedGezi",UserName="格子",Password="gezi654321"});
-            //context.SaveChanges();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider
+                    ($"{Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)}/wwwroot"),
+                    RequestPath = ""
+                });
             }
             app.UseStaticFiles();
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                RequestPath = "/node_modules",
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules"))
-            });
             app.UseAuthentication();
             app.UseMvc(routes =>
             {

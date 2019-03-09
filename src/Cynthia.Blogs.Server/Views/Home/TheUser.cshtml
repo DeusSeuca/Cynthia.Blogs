@@ -1,9 +1,12 @@
 @model ApplicationUser
 
-<h1> @Model.ShowName </h1>
-<p> @Model.UserName </p>
-<p> @Model.RegisterTime </p>
-<!-- <a href="/Home/Login">返回用户列表</a>
-<a href="/Home/Index">返回主页</a> -->
-@Html.ActionLink("返回用户列表","UserList")
-@Html.ActionLink("返回主页","Index")
+<div class="container">
+    <h1> @Model.ShowName </h1>
+    <p> @Model.UserName </p>
+    <p> @Model.RegisterTime </p>
+    <p> @Model.PasswordHash </p>
+    <!-- <a href="/Home/Login">返回用户列表</a>
+    <a href="/Home/Index">返回主页</a> -->
+    @Html.ActionLink("返回用户列表","UserList")
+    @Html.ActionLink("返回主页","Index")
+</div>

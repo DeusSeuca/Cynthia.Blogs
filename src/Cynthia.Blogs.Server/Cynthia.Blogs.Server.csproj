@@ -18,4 +18,36 @@
 
   <ProjectExtensions><VisualStudio><UserProperties package_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
+  <Target Name="BuildClient" BeforeTargets="Build">
+    <Exec WorkingDirectory="../../" Command="node node_modules/webpack-cli/bin/cli.js --config build/client/webpack.config.js --mode development" />
+
+    <ItemGroup>
+      <ClientFiles Include="obj/webpack/**" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(ClientFiles)" DestinationFolder="$(OutputPath)wwwroot/%(RecursiveDir)" />
+  </Target>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="BuildClient" Condition=" '$(Configuration)' == 'Debug' And !Exists('../../node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="../../" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishCopyClient" AfterTargets="ComputeFilesToPublish">
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="obj/webpack/**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>wwwroot/%(DistFiles.RecursiveDir)%(DistFiles.Filename)%(DistFiles.Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+    <Message Importance="high" Text="@(DistFiles)" />
+  </Target>
+
 </Project>

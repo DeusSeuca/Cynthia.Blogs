@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cynthia.Blogs.Server.Migrations
 {
-    public partial class InitModels : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -161,15 +161,15 @@ namespace Cynthia.Blogs.Server.Migrations
                     Id = table.Column<string>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Context = table.Column<string>(nullable: true),
-                    ReleaseTime = table.Column<DateTimeOffset>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    ReleaseTime = table.Column<DateTimeOffset>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Blog", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Blog_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
+                        name: "FK_Blog_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -240,9 +240,9 @@ namespace Cynthia.Blogs.Server.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Blog_ApplicationUserId",
+                name: "IX_Blog_UserId",
                 table: "Blog",
-                column: "ApplicationUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comment_BlogId",

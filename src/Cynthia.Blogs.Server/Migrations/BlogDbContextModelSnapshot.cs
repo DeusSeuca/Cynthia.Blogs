@@ -75,17 +75,17 @@ namespace Cynthia.Blogs.Server.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<string>("Context");
 
                     b.Property<DateTimeOffset>("ReleaseTime");
 
                     b.Property<string>("Title");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Blog");
                 });
@@ -225,9 +225,9 @@ namespace Cynthia.Blogs.Server.Migrations
 
             modelBuilder.Entity("Cynthia.Blogs.Server.Models.Blog", b =>
                 {
-                    b.HasOne("Cynthia.Blogs.Server.Models.ApplicationUser")
+                    b.HasOne("Cynthia.Blogs.Server.Models.ApplicationUser", "User")
                         .WithMany("Blogs")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Cynthia.Blogs.Server.Models.Comment", b =>

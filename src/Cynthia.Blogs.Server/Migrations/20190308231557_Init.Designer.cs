@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cynthia.Blogs.Server.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20190307085748_InitModels")]
-    partial class InitModels
+    [Migration("20190308231557_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,17 +77,17 @@ namespace Cynthia.Blogs.Server.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<string>("Context");
 
                     b.Property<DateTimeOffset>("ReleaseTime");
 
                     b.Property<string>("Title");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Blog");
                 });
@@ -227,9 +227,9 @@ namespace Cynthia.Blogs.Server.Migrations
 
             modelBuilder.Entity("Cynthia.Blogs.Server.Models.Blog", b =>
                 {
-                    b.HasOne("Cynthia.Blogs.Server.Models.ApplicationUser")
+                    b.HasOne("Cynthia.Blogs.Server.Models.ApplicationUser", "User")
                         .WithMany("Blogs")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Cynthia.Blogs.Server.Models.Comment", b =>
