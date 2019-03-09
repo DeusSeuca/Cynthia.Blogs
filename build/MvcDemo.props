@@ -1,0 +1,15 @@
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <RootNamespace>MvcDemo</RootNamespace>
+    <NoWarn>NETSDK</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(UsingMicrosoftNETSdkWeb)' != 'true' ">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>
