@@ -1,6 +1,6 @@
 ﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 navbar-dark bg-dark" role="navigation">
     <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cynthia的博客</a>
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">首页</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
                 @if(SignInManager.IsSignedIn(User))
                 {
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="UserList" asp-controller="Home">@await UserManager.GetUserAsync(User)</a>
+                        <a class="nav-link" asp-action="UserList" asp-controller="Home">@UserManager.GetUserAsync(User).Result.ShowName</a>
                     </li>
                     <form method="post" asp-action="Logout" asp-controller="Account" id="logoutForm">
                         <li class="nav-item">

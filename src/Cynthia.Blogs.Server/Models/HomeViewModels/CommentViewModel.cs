@@ -1,24 +1,26 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Cynthia.Blogs.Server.Models.HomeViewModels
 {
     public class CommentViewModel
     {
-        [Display(Name="标题")]
-        [Required(ErrorMessage="请输入标题!")]
-        public string Title{get;set;}
-
-        [Display(Name="内容")]
-        [Required(ErrorMessage="请输入内容!")]
+        [Display(Name="评论")]
+        [Required(ErrorMessage="需要输入评论内容")]
         public string Context{get;set;}
 
-        public Comment GetComment(string userId,string blogId)
+        //must bind
+        [BindRequired]
+        public string BlogId{get;set;}
+
+        public Comment GetComment(string userId)
         {
             return new Comment
             {
                 Context = this.Context,
                 UserId = userId,
-                BlogId = blogId
+                BlogId = this.BlogId
             };
         }
     }

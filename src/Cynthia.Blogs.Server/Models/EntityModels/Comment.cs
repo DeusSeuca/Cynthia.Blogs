@@ -8,7 +8,7 @@ namespace Cynthia.Blogs.Server.Models
     {
         [Key]
         public string Id { get; set; }
-        public DateTimeOffset CommentTime { get; set; } = new DateTimeOffset();
+        public DateTimeOffset CommentTime { get; set; } = DateTimeOffset.Now;
         public string Context{get;set;}
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }

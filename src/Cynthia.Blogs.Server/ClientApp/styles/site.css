@@ -17,6 +17,10 @@ a.navbar-brand {
       font-size: 16px;
     }
   }
+
+  ul li{  
+    list-style-type:none;  
+  }  
   
   .border-top {
     border-top: 1px solid #e5e5e5;

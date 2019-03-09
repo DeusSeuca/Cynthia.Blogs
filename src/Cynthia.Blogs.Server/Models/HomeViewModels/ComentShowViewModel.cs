@@ -5,13 +5,12 @@ using Cynthia.Blogs.Server.Models;
 
 public class CommentShowViewModel
 {
-    public CommentShowViewModel(Comment comment,BlogDbContext context)
+    public CommentShowViewModel(Comment comment)
     {
         CommentTime = comment.CommentTime;
         Context = comment.Context;
         BlogId = comment.BlogId;
         UserId = comment.UserId;
-        ShowName = context.User.Single(x=>x.Id==comment.UserId).ShowName;
     }
     public DateTimeOffset CommentTime { get; set; }
     public string Context{get;set;}

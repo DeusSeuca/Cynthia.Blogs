@@ -53,12 +53,12 @@ public class HomeController : Controller
         var blog = (await _context.Blog.AddAsync(info.GetBlog(user.Id))).Entity;
         await _context.SaveChangesAsync();
         //show blog
-        return RedirectToAction(nameof(BlogShow),"Home",blog.Id);
+        return RedirectToAction(nameof(BlogShow),"Home",new{id=blog.Id});
     }
 
     public IActionResult BlogShow(string id)
     {
-        //not find blog
+        //if not find
         var blog = _context.Blog.SingleOrDefault(x=>x.Id==id);
         if(blog==null)
         {
@@ -66,6 +66,17 @@ public class HomeController : Controller
         }
         //show blog
         return View(new BlogShowViewModel(blog,_context));
+    }
+
+    [HttpPost]
+    [Authorize]
+    public async Task<IActionResult> Comment(CommentViewModel comment)
+    {
+        var c = comment.GetComment((await _userManager.GetUserAsync(HttpContext.User)).Id);
+        await _context.Comment.AddAsync(c);
+        await _context.SaveChangesAsync();
+        //return to blog
+        return RedirectToAction(nameof(BlogShow),"Home",new{id=comment.BlogId});
     }
 
     public async Task<IActionResult> UserList()
