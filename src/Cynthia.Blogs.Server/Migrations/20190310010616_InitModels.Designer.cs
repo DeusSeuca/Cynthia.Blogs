@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cynthia.Blogs.Server.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20190308231557_Init")]
-    partial class Init
+    [Migration("20190310010616_InitModels")]
+    partial class InitModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cynthia.Blogs.Server.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

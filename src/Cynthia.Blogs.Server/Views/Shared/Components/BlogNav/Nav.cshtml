@@ -13,7 +13,7 @@
                 @if(SignInManager.IsSignedIn(User))
                 {
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="UserList" asp-controller="Home">@UserManager.GetUserAsync(User).Result.ShowName</a>
+                        <a class="nav-link" asp-action="TheUser" asp-controller="Home" asp-route-id="@UserManager.GetUserAsync(User).Result.Id">@UserManager.GetUserAsync(User).Result.ShowName</a>
                     </li>
                     <form method="post" asp-action="Logout" asp-controller="Account" id="logoutForm">
                         <li class="nav-item">

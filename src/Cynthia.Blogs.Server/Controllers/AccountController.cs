@@ -61,7 +61,7 @@ namespace Cynthia.Blogs.Server.Controllers
                 return View(info);
             if (await _business.Register(info))
                 return RedirectToAction(nameof(Login));
-            ModelState.AddModelError("","注册失败,该用户信息已经被注册!");
+            ModelState.AddModelError("","注册失败,该用户信息已经被注册,或使用了中文的登陆用户名!");
             return View(info);
         }
     }
